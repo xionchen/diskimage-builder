@@ -1,0 +1,2 @@
+export DIB_DEBUG_USER=root
+export DIB_DEBUG_PASSWORD=rootpasswd

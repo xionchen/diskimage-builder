@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ ${DIB_DEBUG_TRACE:-0} -gt 0 ]; then
+    set -x
+fi
+set -eu
+set -o pipefail
+
+DIB_DEBUG_USER=${DIB_DEBUG_USER:-}
+DIB_DEBUG_PASSWORD=${DIB_DEBUG_PASSWORD:-}
+
+if [ -n `cat /etc/passwd|grep $DIB_DEBUG_USER` ] ; then
+    useradd $DIB_DEBUG_USER
+fi
+echo '$DIB_DEBUG_USER:$DIB_DEBUG_PASSWORD' |chpasswd
